@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pingsong</title>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<section><div class="container"><div class="columns">
+    <div class="column is-one-quarter has-text-centered">
+        <div class="card" id="team1">
+            <header class= "card-header card-header-title is-centered">
+                <span>Team 1</span>
+                <form action="#" class="hide">
+                    <input type="text" name="newName" placeholder= "Rename Your Team">
+                </form>
+            </header>
+            <div id="winsTeam1" class="card-content winningWords">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <div class="column is-half">
+        <div class="card">
+            <header class= "card-header card-header-title is-centered">Ping a Song!</header>
+            <div class="card-content">
+                <div class="buttons is-group is-centered">
+                    <button class="button is-large is-dark">New Word</button>
+                </div>
+                <h1 id="word" class="title is-size-1 has-text-centered"><span id="blinker"></span><span id="newWord"></span></h1>
+                <div class="columns">
+                    <div class="column is-two-thirds">
+                        <h1 class="title is-size-1"><span id="scoreDisplayTeam1">0</span> to <span id="scoreDisplayTeam2">0</span></h1>
+                        <p class="subtitle is-size-6">Use the buttons below to keep score.</p>
+                    </div>
+                    <div class="column is-one-third">
+                        <div id="circle-container">
+                            <div id="text"><span></span></div>
+                            <div id="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <label for="playTo" class= "label is-inline is-large">Playing To </label>
+                    </div>
+                    <div class="column is-two-thirds">
+                        <div class="select is-rounded">
+                            <select class="select is-rounded" name="playTo" id="playTo">
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15" selected>15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <div class="columns is-multiline" style="width:100%;margin:0px">
+                    <div class="column is-centered is-half">
+                        <button class= "is-primary button card-footer-item is-large is-fullwidth" id= "buttonTeam1">+1 Team One</button>
+                    </div>
+                    <div class="column is-centered is-half">
+                        <button class= "is-info button card-footer-item is-large is-fullwidth" id= "buttonTeam2">+1 Team Two</button>
+                    </div>
+                    <div class="column is-centered is-full hide">
+                        <button class= "is-info button card-footer-item is-large is-fullwidth" id="rematchButton">
+                            <span>REMATCH!</span>
+                        </button>
+                    </div>
+                    <div class="column is-centered is-full">
+                        <button class= "is-danger button card-footer-item is-large is-fullwidth" id= "reset">Reset</button>
+                    </div>
+                    <div class="column is-full">
+                        <form id="addWordForm">
+                            <label for="addWordInput">Add A Word!</label>
+                            <input type="text" name="addWordInput">
+                        </form>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="column is-one-quarter has-text-centered">
+        <div class="card" id="team2">
+            <header class= "card-header card-header-title is-centered">
+                <span>Team 2</span>
+                <form action="#" class="hide">
+                    <input type="text" name="newName" placeholder= "Rename Your Team">
+                </form>
+            </header>
+            <div id="winsTeam2" class="card-content winningWords">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+</div></div></section>
+
+
+<script src= "main.js"></script>
+</body>
+</html>

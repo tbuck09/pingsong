@@ -1,0 +1,81 @@
+/* figure.image {
+    max-height: 500px;
+}
+
+div.dark-overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+.container {
+    height: 100vh;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
+}
+
+span#blinker {
+    border: 1px black solid;
+    animation: blinker 1s linear infinite;
+}
+
+
+.hide {
+    display: none;
+}
+
+#circle-container {
+    /* border: 1px black solid; */
+    height: 6em;
+    width: 6em;
+    text-justify: auto;
+    text-align: center;
+}
+
+#circle-container #circle {
+    position: relative;
+    top: -100%;
+    background-color: hsl(204, 71%, 53%);
+    opacity: .8;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%; 
+    z-index: 1;
+}
+#circle-container #text{
+    position: relative;
+    z-index: 2;
+    font-size: 5em;
+    text-align: center;
+    height: 100px;
+}
+#circle-container #text span {
+    color: rgb(129, 0, 0);
+}
+
+.shrink {
+    transform: scale(0);
+    transition: transform 5s linear;
+}
+
+@keyframes blinker{
+    50% {opacity: 0}
+}
+
+/* @keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+} */
