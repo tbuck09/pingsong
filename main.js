@@ -7,9 +7,35 @@
 // Verify script is running
 console.log("JS Equipped!");
 
+// Team Elements
+const teams= {
+    "team1": {
+        "card": document.querySelector("#team1"),
+        "span": team1.querySelector("span"),
+        "form": team1.querySelector("form"),
+        "name": team1.querySelector("input[name='newName']"),
+        "color": team1.querySelector("input[name='newColor']"),
+        "button": document.querySelector("#buttonTeam1"),
+        "score": 0,
+        "scoreDisplay": document.querySelector("#scoreDisplayTeam1"),
+        "winningWords": document.querySelector("#winsTeam1 ul")
+    },
+    "team2": {
+        "card": document.querySelector("#team2"),
+        "span": team2.querySelector("span"),
+        "form": team2.querySelector("form"),
+        "name": team2.querySelector("input[name='newName']"),
+        "color": team2.querySelector("input[name='newColor']"),
+        "button": document.querySelector("#buttonTeam2"),
+        "score": 0,
+        "scoreDisplay": document.querySelector("#scoreDisplayTeam2"),
+        "winningWords": document.querySelector("#winsTeam2 ul")
+    }
+}
+
 // Initialize Settings
 let isGameOver= false;
-let totalTime= 5000;
+let totalTime= 15000;
 
 let countdownTimeout= null;
 let timerInterval= null;
@@ -24,9 +50,13 @@ const blinker= document.querySelector("#blinker");
 
 const circleContainer= document.querySelector("#circle-container");
 let circle= circleContainer.querySelector("#circle");
-const text= circleContainer.querySelector("div#text span");
+const textDiv= circleContainer.querySelector("div#text");
+const text= textDiv.querySelector("span");
 
 const rematchBtn= document.querySelector("#rematchButton");
+
+teams["team1"].button.style.backgroundColor= teams["team1"].color.value;
+teams["team2"].button.style.backgroundColor= teams["team2"].color.value;
 
 // Get a Word or a New Word
 newWordButton.addEventListener("click", function() {
@@ -69,39 +99,18 @@ const startTimer= (totalTime) => {
         timerInterval= setInterval(() => {
             if (count === 0) {
                 clearInterval(timerInterval);
+                textDiv.classList.remove("grow");
                 text.innerText= "";
                 circle.classList.remove("shrink");
             } else {
+                textDiv.classList.remove("grow");
                 console.log(count);
+                textDiv.classList.add("grow");
                 text.innerText= count;
                 count--;
             }
         }, 1000);
     }, totalTime - (1000 * 4));
-}
-
-// Team Elements
-const teams= {
-    "team1": {
-        "card": document.querySelector("#team1"),
-        "span": team1.querySelector("span"),
-        "form": team1.querySelector("form"),
-        "input": team1.querySelector("input"),
-        "button": document.querySelector("#buttonTeam1"),
-        "score": 0,
-        "scoreDisplay": document.querySelector("#scoreDisplayTeam1"),
-        "winningWords": document.querySelector("#winsTeam1 ul")
-    },
-    "team2": {
-        "card": document.querySelector("#team2"),
-        "span": team2.querySelector("span"),
-        "form": team2.querySelector("form"),
-        "input": team2.querySelector("input"),
-        "button": document.querySelector("#buttonTeam2"),
-        "score": 0,
-        "scoreDisplay": document.querySelector("#scoreDisplayTeam2"),
-        "winningWords": document.querySelector("#winsTeam2 ul")
-    }
 }
 
 // Name Change Functionality
@@ -123,11 +132,12 @@ teams["team2"].form.addEventListener("submit", (e) => {
 const changeNameDblClick= (team) => {
     team.form.classList.toggle("hide");
     team.span.classList.toggle("hide");
-    team.input.focus();
+    team.name.focus();
 }
 const changeNameSubmit= (team) => {
     team.span.innerText= team.form.elements.newName.value;
     team.button.innerText= `+1 ${team.form.elements.newName.value.length <= 15 ? `${team.form.elements.newName.value}` : `${team.form.elements.newName.value.slice(0,10)}...`}`;
+    team.button.style.backgroundColor= team.color.value;
     team.form.classList.toggle("hide");
     team.span.classList.toggle("hide");
 }
@@ -135,12 +145,12 @@ const changeNameSubmit= (team) => {
 // Add Points to the Winning Team
 teams["team1"].button.addEventListener("click", () => {
     addPoint(teams["team1"], teams["team2"]);
-    pickNewWord();
+    // pickNewWord();
 
 })
 teams["team2"].button.addEventListener("click", () => {
     addPoint(teams["team2"], teams["team1"]);
-    pickNewWord();
+    // pickNewWord();
 
 })
 
@@ -154,7 +164,10 @@ const addPoint= (team, opponent) => {
             clearTimeout(countdownTimeout);
             countdownTimeout= null;
         }
-        // clearTimeout(countdownTimeout);
+
+        newWordElt.querySelector("#newWord").innerText= "";
+        blinker.classList.remove("hide");
+
         clearInterval(timerInterval);
         text.innerHTML= "";
 
@@ -341,5 +354,99 @@ const wordArr= [
     "Pal",
     "Sweetheart",
     "Rose",
-    "Mammy"
+    "Mammy",
+    "Dick",
+    "Chain",
+    "Shawty",
+    "Run",
+    "Green",
+    "Party",
+    "Without",
+    "Beat",
+    "Over",
+    "Up",
+    "Burn",
+    "Gangsta",
+    "Touch",
+    "Lights",
+    "Pussy",
+    "Bring",
+    "Romeo",
+    "Fly",
+    "Bass",
+    "Jesus",
+    "Down",
+    "Cold",
+    "Favorite",
+    "Independent",
+    "Boss",
+    "Body",
+    "Ass",
+    "Boy",
+    "Remember",
+    "Hold",
+    "Yeah",
+    "Use",
+    "Sing",
+    "Because",
+    "Know",
+    "Star",
+    "Find",
+    "Lucky",
+    "Hate",
+    "Game",
+    "Don't",
+    "Diamond",
+    "Time",
+    "Look",
+    "Go",
+    "Dress",
+    "Shoes",
+    "Mr.",
+    "Blue",
+    "Sky",
+    "Jukebox",
+    "Sorry",
+    "Pop",
+    "About",
+    "Send",
+    "Leave",
+    "Somebody",
+    "Maybe",
+    "Tomorrow",
+    "Night",
+    "Year",
+    "River",
+    "Crazy",
+    "Hot",
+    "Beer",
+    "Drink",
+    "Try",
+    "Sunshine",
+    "High",
+    "Eyes",
+    "Doctor",
+    "Cry",
+    "Hard",
+    "Ball",
+    "Friends",
+    "Lover",
+    "Good",
+    "Breath",
+    "Breathe",
+    "Mirror",
+    "Help",
+    "Family",
+    "Floor",
+    "Hey",
+    "What",
+    "Sexy",
+    "Call",
+    "Stop",
+    "Soldier",
+    "Young",
+    "Kiss",
+    "Wrong",
+    "One",
+    "Hole"
 ]
